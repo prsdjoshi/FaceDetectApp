@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GenderRecognizer">
+
+    <org.opencv.android.JavaCameraView
+        android:id="@+id/CameraView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ToggleButton
+            android:id="@+id/toggle_camera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="17dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:textOff="@string/front_camera"
+            android:textOn="@string/back_camera"/>
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:padding="17dp"
+            android:text="@string/back_button"/>
+        <com.detector.facedetection.PulsatorLayout
+            android:id="@+id/pulsator"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:pulse_count="4"
+            app:pulse_duration="2000"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            app:pulse_repeat="0"
+            android:layout_weight="0.7"
+            app:pulse_color="@color/colorPrimary"
+            app:pulse_startFromScratch="false"
+            app:pulse_interpolator="Linear">
+        </com.detector.facedetection.PulsatorLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone"
+                android:id="@+id/lay_passing"
+                android:gravity="center_horizontal"
+                android:background="@drawable/passing_gradient"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:id="@+id/img"
+                    android:layout_gravity="center_vertical"
+                    android:tint="@color/white"
+                    android:src="@drawable/ic_check_circle_black_24dp"
+                    android:layout_height="30dp">
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:id="@+id/txt"
+                    android:paddingLeft="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="Passing"
+                    android:textColor="@color/white"
+                    android:textSize="22dp"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:visibility="gone"
+                android:id="@+id/lay_nopassing"
+                android:gravity="center_horizontal"
+                android:background="@drawable/nopassing_gradient"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_gravity="center_vertical"
+                    android:tint="@color/white"
+                    android:src="@drawable/ic_cancel_black_24dp"
+                    android:layout_height="30dp">
+                </ImageView>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="NO Passing"
+                    android:textColor="@color/white"
+                    android:textSize="22dp"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:background="@color/blue40"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="7dp"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:id="@+id/txt_mask"
+                        android:layout_gravity="center_vertical"
+                        android:text="Mask Not Found"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:id="@+id/txt_gender"
+                        android:layout_gravity="center_vertical"
+                        android:text="Gender: "
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:paddingLeft="15dp"
+                        android:id="@+id/txt_age"
+                        android:layout_gravity="center_vertical"
+                        android:text="Age: "
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>
