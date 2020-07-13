@@ -21,7 +21,7 @@
         android:theme="@style/AppFullScreenTheme"
         android:largeHeap="true">
         <activity android:name="com.detector.facedetection.GenderRecognizer"
-          >
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

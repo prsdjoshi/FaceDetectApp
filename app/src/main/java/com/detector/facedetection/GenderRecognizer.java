@@ -257,8 +257,8 @@ public class GenderRecognizer extends AppCompatActivity implements CameraBridgeV
         point2.x=360;
         point2.y=370;
 
-       // Imgproc.circle(mRgba, point1, 400, new Scalar(255, 0, 0, 0), 8);
-        Imgproc.rectangle(mRgba, new Point(camera_width/5,camera_height/5), new Point(camera_width-(camera_width/5),(camera_height/5)*3), new Scalar(63, 81, 181,0),3);
+        Imgproc.circle(mRgba, point1, 400, new Scalar(255, 0, 0, 0), 8);
+       // Imgproc.rectangle(mRgba, new Point(camera_width/5,camera_height/5), new Point(camera_width-(camera_width/5),(camera_height/5)*3), new Scalar(63, 81, 181,0),3);
 
         //        double height_15=camera_height*0.15;
 //        double height_minus_15=camera_height-height_15;
@@ -308,7 +308,7 @@ public class GenderRecognizer extends AppCompatActivity implements CameraBridgeV
         Rect[] facesArray = faces.toArray();
         for (int i = 0; i < facesArray.length; i++) {
             Imgproc.rectangle(mRgba, facesArray[i].tl(), facesArray[i].br(), new Scalar(0, 255, 0, 255), 3);
-           // Imgproc.circle(mRgba, point1, 400, new Scalar(0,255, 0, 255), 8);
+             Imgproc.circle(mRgba, point1, 400, new Scalar(0,255, 0, 255), 8);
            // lay_passing.setVisibility(View.VISIBLE);
         }
 
